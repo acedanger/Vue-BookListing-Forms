@@ -3,7 +3,6 @@
     {{book.title}} : {{book.author}}
     <span v-if="book.finishedReading">- Read</span>
     <span v-else="book.finishedReading">- Not Read</span>
-    <span>({{book.ownership}})</span>
   </li>
 </template>
 
