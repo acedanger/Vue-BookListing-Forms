@@ -3,9 +3,19 @@
     <input v-model="bookData.bookTitle" type="text" name="title" value="" placeholder="Book Title">
     <input v-model="bookData.bookAuthor" type="text" name="author" value="" placeholder="Book Author">
     <div>
-      <label for="finishedReading">Finished Reading?</label><input v-model="bookData.finishedReading" type="checkbox" />
-      <label for="borrowed">Borrowed</label><input v-model="bookData.ownership" type="radio" value="borrowed" />Borrowed
-      <label for="bought">Bought</label><input v-model="bookData.ownership" type="radio" value="bought" />Bought
+      <label for="finishedReading">Finished Reading?
+        <input v-model="bookData.finishedReading" type="checkbox" name="finishedReading" />
+      </label>
+    </div>
+    <div>
+      <label for="borrowed">
+        Borrowed
+        <input v-model="bookData.ownership" type="radio" value="borrowed" name="borrowed" />
+      </label>
+      <label for="bought">
+        Bought
+        <input v-model="bookData.ownership" type="radio" value="bought" name="bought" />
+      </label>
     </div>
     <button type="submit" name="button">Add Book</button>
   </form>
@@ -15,12 +25,14 @@
 export default {
   name: "BookForm",
   props: ["books"],
-  data() {
-    bookData: {
-      bookTitle: "",
-      bookAuthor: "",
-      finishedReading: false,
-      ownership: []
+  data () {
+    return {
+      bookData: {
+        bookTitle: "",
+        bookAuthor: "",
+        finishedReading: false,
+        ownership: []
+      }
     };
   },
   methods: {
